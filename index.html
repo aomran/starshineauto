@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
-<title>Starshine Auto Detailing</title>
+<title>Starshine Auto Detailing - Ottawa, Ontario</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <style>
   html {
@@ -39,6 +39,10 @@
     width: 100% !important;
     height: 100% !important;
   }
+  .discounted{
+    color:red;
+    text-decoration:line-through;
+  }
 </style>
 </head>
 <body>
@@ -47,47 +51,32 @@
   </div>
 
   <div class="container">
-    <div class="row top-margin">
-      <a target="_blank" href="https://my.setmore.com/bookanappointmentv3.do?uniqueKey=7d15d24b-ed6b-4ef1-8f2e-9c6672f06853">
-        <img src="site-assets/book-button.png" class="img-responsive center-block" alt="Book an appointment with Starshine auto Detailing using SetMore">
-      </a>
+    <div class="row top-margin text-center">
+      <h1>HANDWASH SERVICES</h1>
     </div>
 
     <div class="row top-margin text-center">
-      <h1>PACKAGES</h1>
-    </div>
-
-    <div class="row top-margin text-center">
-      <div class="col-md-4">
-        <h1>THE BASIC</h1>
-        <ul class="list-unstyled">
-          <li>- Complete Exterior Hand wash</li>
-          <li>- Wheels &amp; Tires Shine</li>
-          <li>- 15 min -</li>
-        </ul>
-        <h1>$20</h1>
-      </div>
-      <div class="col-md-4">
-        <h1>THE STANDARD</h1>
+      <div class="col-md-6">
+        <h1>STANDARD</h1>
         <ul class="list-unstyled">
           <li>- Complete Exterior Hand wash</li>
           <li>- Interior Vacuum and Cleaning</li>
           <li>- Wheels &amp; Tires Shine</li>
           <li>- 30 min -</li>
         </ul>
-        <h1>$45</h1>
+        <h1>$60</h1>
         <p>Additional $15 fee for SUV/Mini Van/Truck/Crossover</p>
       </div>
-      <div class="col-md-4">
-        <h1>THE LUXURY</h1>
+      <div class="col-md-6">
+        <h1>LUXURY</h1>
         <ul class="list-unstyled">
           <li>- Complete Exterior Hand wash</li>
           <li>- Interior Vacuum and Cleaning</li>
           <li>- Full Interior Shampoo</li>
           <li>- Wheels &amp; Tires Shine</li>
-          <li>- 2 hours -</li>
+          <li>- 1.5 hours -</li>
         </ul>
-        <h1>$120</h1>
+        <h1 id="discounted"><span class="price">$120</span></h1>
         <p>Additional $20 fee for SUV/Mini Van/Truck/Crossover</p>
       </div>
     </div>
@@ -118,7 +107,13 @@
     </div>
 
     <div class="row top-margin text-center">
-      <h1>CONTACT</h1>
+      <h2>CALL US OR BOOK AN APPOINTMENT ONLINE</h2>
+    </div>
+
+    <div class="row top-margin">
+      <a target="_blank" href="https://my.setmore.com/bookanappointmentv3.do?uniqueKey=7d15d24b-ed6b-4ef1-8f2e-9c6672f06853">
+        <img src="site-assets/book-button.png" class="img-responsive center-block" alt="Book an appointment with Starshine auto Detailing using SetMore">
+      </a>
     </div>
 
     <div class="row top-margin">
@@ -150,5 +145,27 @@
       </div>
     </div>
   </div>
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script>
+  (function(){
+    function getQueryVariable(variable){
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+             var pair = vars[i].split("=");
+             if(pair[0] == variable){return pair[1];}
+      }
+      return(false);
+    }
+    var coupon = getQueryVariable('coupon');
+    if(coupon === 'summer2016'){
+      var discounted = $('#discounted');
+      var newPrice = $('<mark>').text('30% discount with coupon "summer2016"')
+      discounted.find('.price').addClass('discounted');
+      discounted.append(' $84');
+      newPrice.insertAfter(discounted);
+    }
+  })();
+  </script>
 </body>
 </html>
